@@ -1,4 +1,4 @@
-# OpenCode Dev
+# OpenCode Custom Agents & Skills
 
 Repositório central de **agents** e **skills** customizados para o [opencode](https://opencode.ai).
 
