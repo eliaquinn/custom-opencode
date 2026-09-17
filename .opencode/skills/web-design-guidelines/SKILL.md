@@ -23,7 +23,7 @@ Review files for compliance with Web Interface Guidelines.
 Fetch fresh guidelines before each review:
 
 ```
-https://raw.githubusercontent.com/vercel-labs/web-interface-guidelines/main/command.md
+https://raw.githubusercontent.com/eliaquinn/web-interface-guidelines/refs/heads/main/command.md
 ```
 
 Use WebFetch to retrieve the latest rules. The fetched content contains all the rules and output format instructions.
