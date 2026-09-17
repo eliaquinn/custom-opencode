@@ -3,7 +3,7 @@ description: >
   Agent central que coordena o desenvolvimento. Analisa requisitos, planeja,
   documenta, delega aos agentes especializados e mantém registro de decisões.
   Use este agent como ponto de entrada para novos recursos ou correções.
-mode: primary
+mode: subagent
 permission:
   edit: allow
   bash: ask

@@ -12,7 +12,7 @@ Este projeto fornece um conjunto de agents especializados e skills que podem ser
 
 ```
 opencode-dev/
-├── AGENTS.md              # Documentação principal (agents e skills)
+├── README.md              # Este arquivo
 ├── opencode.json          # Configuração do opencode
 └── .opencode/
     ├── agent/             # Definições dos agents
@@ -24,6 +24,7 @@ opencode-dev/
     └── skills/            # Skills especializadas
         ├── fix-bug/
         ├── react-best-practices/
+        ├── react-composition-patterns/
         ├── react-native-skills/
         ├── react-view-transitions/
         ├── web-design-guidelines/
@@ -52,22 +53,28 @@ cp -r .opencode/ /caminho/do/seu-projeto/opencode/
 
 ---
 
-## Agents
+## Agentes
 
 | Agent | Modo | Descrição |
 |-------|------|----------|
-| `@compose` | Primary | Coordenador central — ponto de entrada para novos recursos/correções |
+| `@compose` | Subagent | **Ponto de entrada** — Coordenador central para novos recursos/correções |
 | `@frontend` | Subagent | Interface web/mobile — React, React Native, View Transitions |
 | `@backend` | Subagent | APIs e serviços backend |
 | `@database` | Subagent | Banco de dados SQL |
 
-### Exemplos de Uso
+### Modo de Uso
+
+1. **Inicie a conversa com @compose** — Este é o ponto de entrada para qualquer nova tarefa:
 
 ```bash
-# Iniciar novo recurso via @compose
 @compose: Crie o recurso X que faz Y
+```
 
-# Delegar para agente especializado
+2. **O @compose analisa e delega** para os agentes especializados conforme necessário
+
+3. **Agents disponíveis para delegação:**
+
+```bash
 @frontend: Implemente o componente de login
 @backend: Crie a API de autenticação
 @database: Crie as tabelas para usuários
@@ -87,6 +94,7 @@ Skills são carregadas automaticamente quando o modelo detecta relevância pela 
 | `react-view-transitions` | View Transitions API |
 | `react-best-practices` | 70+ regras de performance React/Next.js |
 | `react-native-skills` | 35+ regras React Native/Expo |
+| `react-composition-patterns` | Padrões de composição React (compound components, context, etc) |
 
 ---
 
@@ -99,9 +107,25 @@ Skills são carregadas automaticamente quando o modelo detecta relevância pela 
 
 ---
 
+## Estrutura de Documentação (docs/)
+
+O `@compose` mantém uma estrutura organizada:
+
+```
+docs/
+├── feature/          # Especificações de novos recursos
+│   └── {nome}-{data}.md
+├── fix/             # Documentação de correções
+│   └── {problema}-{data}.md
+└── memory/          # Histórico de decisões
+    └── {contexto}-{data}.md
+```
+
+---
+
 ## Regras
 
+- **@compose é o ponto de entrada** — Sempre inicie com ele para novas tarefas
 - Skills são ativadas automaticamente pela `description`
 - Mantenha `SKILL.md` com menos de 500 linhas
-- Scripts: stderr para logs, stdout para JSON estruturado
 - Reinicie o opencode após mudanças de configuração
